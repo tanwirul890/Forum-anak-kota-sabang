@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Forum Anak Kota Sabang</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset dan Font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+             color: #343a40;
+            line-height: 1.6;
+           overflow-x: hidden;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        h1, h2, h3 {
+          font-weight: 600;
+          margin-bottom: 1.5rem;
+           color: #2c3e50;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Header dan Navigasi */
+        header {
+           background: linear-gradient(to right, #3498db, #8e44ad);
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+           justify-content: space-between;
+           align-items: center;
+            max-width: 1200px;
+             margin: 0 auto;
+             padding: 0 20px;
+        }
+        .logo a {
+            font-size: 1.7rem;
+           font-weight: 700;
+           color: #fff;
+            transition: color 0.3s;
+        }
+       .logo a:hover {
+            color: #ddd;
+        }
+        .nav-links {
+          display: flex;
+       }
+       .nav-links li {
+           margin-left: 20px;
+        }
+        .nav-links li a {
+           color: #fff;
+            padding: 8px 12px;
+             border-radius: 4px;
+           transition: background-color 0.3s;
+        }
+        .nav-links li a:hover,
+        .nav-links li a.active {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+       .container {
+            max-width: 1200px;
+           margin: 0 auto;
+           padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       }
+
+        /* About Section */
+         .about-page {
+            padding: 2rem 0;
+         }
+        .about-page h2{
+           text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .about-page ul {
+            list-style-type: disc;
+           margin-left: 20px;
+           margin-bottom: 1.5rem;
+      }
+        /* Tim Pengurus Section */
+        .tim-pengurus {
+            padding: 4rem 0;
+           background-color: #ecf0f1;
+         }
+         .tim-pengurus h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+          color: #2c3e50;
+        }
+       .anggota-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+          margin-top: 1.5rem;
+        }
+        .anggota-item {
+            background-color: #fff;
+           padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+        .anggota-item:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .anggota-item img {
+           border-radius: 50%;
+          margin-bottom: 10px;
+        }
+       /* Penghargaan Section */
+        .penghargaan-section {
+            padding: 4rem 0;
+         }
+        .penghargaan-section h2 {
+           text-align: center;
+           margin-bottom: 2.5rem;
+            color: #2c3e50;
+        }
+        .penghargaan-list {
+          margin-top: 1.5rem;
+        }
+       .penghargaan-item {
+           background-color: #ecf0f1;
+           padding: 20px;
+             border-radius: 8px;
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+             display: flex;
+           align-items: center;
+            gap: 15px;
+        }
+        .penghargaan-item img {
+           width: 80px;
+            height: 80px;
+           object-fit: cover;
+           border-radius: 8px;
+        }
+         /* FAQ Section */
+        .faq-section {
+             padding: 4rem 0;
+         }
+       .faq-section h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+             color: #2c3e50;
+       }
+        .faq-list {
+          margin-top: 1.5rem;
+       }
+       .faq-item {
+          margin-bottom: 1rem;
+        }
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+           cursor: pointer;
+           display: flex;
+            justify-content: space-between;
+           align-items: center;
+           transition: color 0.2s;
+      }
+        .faq-item h3:hover {
+           color: #3498db;
+       }
+        .faq-item h3::after {
+           content: '\f067';
+           font-family: 'Font Awesome 6 Free';
+           font-weight: 900;
+          font-size: 1rem;
+           transition: transform 0.3s;
+       }
+        .faq-item h3.open::after {
+           transform: rotate(45deg);
+            content: '\f068';
+      }
+        .faq-item p {
+          display: none;
+            padding: 10px;
+           background-color: #ecf0f1;
+           border-radius: 4px;
+      }
+         .btn {
+            display: inline-block;
+            padding: 12px 24px;
+           background-color: #3498db;
+             color: #fff;
+           text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 500;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+       }
+       .btn:hover {
+          background-color: #2980b9;
+           transform: translateY(-2px);
+        }
+      footer {
+            background: linear-gradient(to right, #3498db, #8e44ad);
+             color: #fff;
+            text-align: center;
+           padding: 1rem 0;
+             position: relative;
+           width: 100%;
+           margin-top: 2rem;
+          display: flex;
+            justify-content: space-between;
+           align-items: center;
+        }
+         footer .footer-content {
+            flex: 1;
+             padding-left: 20px;
+           padding-right: 20px;
+       }
+        footer .social-links a {
+            color: #fff;
+            margin: 0 10px;
+          font-size: 1.3rem;
+             transition: color 0.3s;
+       }
+        footer .social-links a:hover {
+           color: #ddd;
+      }
+        /* Burger menu */
+       .burger-menu {
+            display: none;
+           cursor: pointer;
+           margin-right: 20px;
+       }
+        .burger-menu div {
+            width: 25px;
+             height: 3px;
+            background-color: #fff;
+             margin: 5px 0;
+            transition: 0.4s;
+       }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+           .nav-links {
+                display: none;
+             flex-direction: column;
+              background-color: #3498db;
+                position: absolute;
+                top: 60px;
+                 left: 0;
+               width: 100%;
+                text-align: center;
+                z-index: 10;
+           }
+            .nav-links li {
+                margin: 0;
+            }
+            .nav-links li a {
+              display: block;
+                padding: 12px 20px;
+               border-radius: 0;
+            }
+           nav {
+                flex-wrap: wrap;
+              padding: 10px;
+            }
+            .burger-menu {
+                display: block;
+          }
+            .burger-menu.open div:nth-child(1) {
+                 transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .burger-menu.open div:nth-child(2) {
+               opacity: 0;
+          }
+           .burger-menu.open div:nth-child(3) {
+               transform: rotate(45deg) translate(-5px, -6px);
+            }
+           .nav-links.show {
+               display: flex;
+            }
+           .hero h1 {
+                font-size: 2.5rem;
+           }
+            .hero p {
+                font-size: 1.1rem;
+            }
+           .container {
+                padding: 1.5rem;
+          }
+            footer {
+               flex-direction: column;
+                 text-align: center;
+           }
+          footer .footer-content {
+                padding: 10px;
+           }
+            footer .social-links {
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Forum Anak Sabang</a>
+            </div>
+             <div class="burger-menu">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+               <li><a href="tentang-kami.html" class="active">Tentang Kami</a></li>
+                <li><a href="kegiatan.html">Kegiatan</a></li>
+               <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="about-page">
+           <h2>Tentang Forum Anak Kota Sabang</h2>
+             <p>Forum Anak Kota Sabang adalah sebuah organisasi yang dibentuk sebagai wadah partisipasi anak-anak di Kota Sabang. Kami berkomitmen untuk:</p>
+            <ul>
+               <li>Meningkatkan partisipasi anak dalam pembangunan.</li>
+                <li>Melindungi dan memenuhi hak-hak anak.</li>
+               <li>Memberikan ruang bagi anak untuk menyampaikan pendapat.</li>
+                 <li>Mengembangkan potensi dan bakat anak-anak.</li>
+            </ul>
+            <p>Kami bekerja sama dengan berbagai pihak, termasuk pemerintah daerah, organisasi masyarakat, dan sekolah-sekolah, untuk menciptakan lingkungan yang ramah anak. Tujuan kami adalah agar setiap anak di Kota Sabang dapat tumbuh dan berkembang secara optimal.</p>
+
+            <h2>Visi Kami</h2>
+            <p>Menjadikan forum anak sebagai wadah partisipasi dan pengembangan anak-anak yang berkualitas.</p>
+
+              <h2>Misi Kami</h2>
+             <p>Memberdayakan anak-anak agar menjadi agen perubahan yang positif dalam masyarakat.</p>
+        </section>
+
+       <section class="tim-pengurus">
+           <div class="container">
+                <h2>Tim Pengurus</h2>
+                 <div class="anggota-list">
+                    <div class="anggota-item">
+                        <img src="img/anggota1.jpg" alt="Anggota 1">
+                       <h3>Sarah Putri</h3>
+                       <p>Ketua</p>
+                  </div>
+                     <div class="anggota-item">
+                        <img src="img/anggota2.jpg" alt="Anggota 2">
+                       <h3>Budi Santoso</h3>
+                        <p>Wakil Ketua</p>
+                   </div>
+                    <div class="anggota-item">
+                        <img src="img/anggota3.jpg" alt="Anggota 3">
+                       <h3>Dewi Ayu</h3>
+                       <p>Sekretaris</p>
+                    </div>
+                    <div class="anggota-item">
+                        <img src="img/anggota4.jpg" alt="Anggota 4">
+                       <h3>Fahmi Rahman</h3>
+                         <p>Bendahara</p>
+                    </div>
+                     <div class="anggota-item">
+                        <img src="img/anggota5.jpg" alt="Anggota 5">
+                       <h3>Citra Dewi</h3>
+                       <p>Anggota Bidang Advokasi</p>
+                    </div>
+                    <div class="anggota-item">
+                       <img src="img/anggota6.jpg" alt="Anggota 6">
+                        <h3>Rizky Pratama</h3>
+                        <p>Anggota Bidang Kreativitas</p>
+                   </div>
+                     <div class="anggota-item">
+                       <img src="img/anggota7.jpg" alt="Anggota 7">
+                       <h3>Lina Sari</h3>
+                        <p>Anggota Bidang Humas</p>
+                   </div>
+                   <div class="anggota-item">
+                      <img src="img/anggota8.jpg" alt="Anggota 8">
+                       <h3>Joko Susilo</h3>
+                       <p>Anggota Bidang Program</p>
+                  </div>
+                </div>
+          </div>
+       </section>
+
+       <section class="penghargaan-section">
+           <div class="container">
+                <h2>Penghargaan yang Telah Diraih</h2>
+               <div class="penghargaan-list">
+                   <div class="penghargaan-item">
+                         <img src="img/penghargaan1.png" alt="Penghargaan 1">
+                       <p><strong>Penghargaan Partisipasi Aktif</strong><br>Diberikan oleh Pemerintah Kota Sabang atas partisipasi aktif dalam kegiatan sosial.</p>
+                  </div>
+                    <div class="penghargaan-item">
+                       <img src="img/penghargaan2.png" alt="Penghargaan 2">
+                      <p><strong>Juara 1 Lomba Kreativitas Anak</strong><br>Meraih juara 1 dalam lomba kreativitas anak tingkat Kota Sabang.</p>
+                  </div>
+                  <div class="penghargaan-item">
+                       <img src="img/penghargaan3.png" alt="Penghargaan 3">
+                       <p><strong>Penghargaan Inovasi Program Anak</strong><br>Mendapatkan penghargaan atas inovasi program-program yang ramah anak.</p>
+                    </div>
+                     <div class="penghargaan-item">
+                       <img src="img/penghargaan4.png" alt="Penghargaan 4">
+                        <p><strong>Penghargaan Advokasi Hak Anak</strong><br>Diakui atas peran aktif dalam advokasi hak-hak anak di tingkat kota.</p>
+                    </div>
+                    <div class="penghargaan-item">
+                         <img src="img/penghargaan5.png" alt="Penghargaan 5">
+                         <p><strong>Sertifikat Penghargaan Nasional</strong><br>Diakui sebagai salah satu forum anak terbaik di tingkat nasional.</p>
+                   </div>
+              </div>
+           </div>
+       </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2>Pertanyaan yang Sering Diajukan</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Apa itu Forum Anak Kota Sabang? <i class="fas fa-chevron-down"></i></h3>
+                       <p class="faq-answer">Forum Anak Kota Sabang adalah sebuah organisasi yang dibentuk sebagai wadah partisipasi anak-anak di Kota Sabang.</p>
+                  </div>
+                    <div class="faq-item">
+                       <h3 class="faq-question">Apa saja kegiatan yang dilakukan oleh forum anak? <i class="fas fa-chevron-down"></i></h3>
+                       <p class="faq-answer">Kami mengadakan berbagai kegiatan seperti pelatihan kepemimpinan, diskusi kelompok, kegiatan kreatif, dan sosialisasi hak anak.</p>
+                  </div>
+                   <div class="faq-item">
+                        <h3 class="faq-question">Bagaimana cara bergabung dengan forum anak? <i class="fas fa-chevron-down"></i></h3>
+                        <p class="faq-answer">Anda dapat mendaftar melalui formulir pendaftaran di halaman kontak atau menghubungi kami melalui informasi kontak yang tertera.</p>
+                    </div>
+                   <div class="faq-item">
+                        <h3 class="faq-question">Siapa saja yang bisa bergabung di Forum Anak?  <i class="fas fa-chevron-down"></i></h3>
+                        <p class="faq-answer">Semua anak-anak dan remaja di Kota Sabang dengan usia 10-18 tahun bisa bergabung.</p>
+                    </div>
+                    <div class="faq-item">
+                      <h3 class="faq-question">Apa saja manfaat bergabung dengan Forum Anak? <i class="fas fa-chevron-down"></i></h3>
+                       <p class="faq-answer">Banyak sekali manfaat yang akan kamu dapatkan, antara lain : menambah wawasan, teman, pengalaman, dan belajar berorganisasi</p>
+                   </div>
+                    <div class="faq-item">
+                       <h3 class="faq-question">Apakah ada biaya pendaftaran untuk bergabung? <i class="fas fa-chevron-down"></i></h3>
+                       <p class="faq-answer">Tidak ada biaya pendaftaran, kami terbuka bagi siapa saja yang ingin berkontribusi dan aktif dalam forum.</p>
+                  </div>
+               </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+         <div class="footer-content">
+            <p>© 2024 Forum Anak Kota Sabang</p>
+           <p>Supported by : </p>
+         </div>
+        <div class="social-links">
+           <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+           <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+       </div>
+   </footer>
+    <script>
+         // Navigasi Burger Menu
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        burgerMenu.addEventListener('click', () => {
+           burgerMenu.classList.toggle('open');
+           navLinks.classList.toggle('show');
+        });
+        // FAQ Toggle
+       const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+           const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            question.addEventListener('click', () => {
+              item.classList.toggle('open');
+                answer.style.display = item.classList.contains('open') ? 'block' : 'none';
+                 question.classList.toggle('open')
+           });
+        });
+    </script>
+</body>
+</html>
