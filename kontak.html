@@ -7,256 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-         /* Reset dan Font */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f8ff;
-            color: #343a40;
-            line-height: 1.6;
-           overflow-x: hidden;
-        }
-        a {
-          text-decoration: none;
-          color: inherit;
-        }
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-        h1, h2, h3 {
-          font-weight: 600;
-          margin-bottom: 1.5rem;
-          color: #2c3e50;
-        }
-      img {
-          max-width: 100%;
-          height: auto;
-       }
-       /* Header dan Navigasi */
-        header {
-           background: linear-gradient(to right, #3498db, #8e44ad);
-            color: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .logo a {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: #fff;
-            transition: color 0.3s;
-        }
-        .logo a:hover {
-            color: #ddd;
-        }
-        .nav-links {
-            display: flex;
-        }
-        .nav-links li {
-            margin-left: 20px;
-        }
-        .nav-links li a {
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        .nav-links li a:hover,
-        .nav-links li a.active {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        /* Main Content */
-        main {
-            padding: 2rem 0;
-        }
-      .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Contact Page Section */
-        .contact-page {
-             padding: 2rem 0;
-         }
-        .contact-page h2 {
-            text-align: center;
-             margin-bottom: 2rem;
-           color: #2c3e50;
-       }
-        .contact-info {
-            margin-bottom: 1.5rem;
-           line-height: 1.8;
-       }
-         .contact-form .form-group {
-           margin-bottom: 1rem;
-       }
-       .contact-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea,
-         .contact-form input[type="date"],
-        .contact-form input[type="number"],
-         .contact-form select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-           border-radius: 4px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-           transition: border-color 0.3s;
-        }
-       .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus,
-       .contact-form input[type="date"]:focus,
-        .contact-form input[type="number"]:focus,
-       .contact-form select:focus {
-            border-color: #3498db;
-           outline: none;
-        }
-        .contact-form textarea {
-           resize: vertical;
-         }
-        /* Map Section */
-        #map {
-           height: 400px;
-           width: 100%;
-            margin-bottom: 2rem;
-        }
-       .btn {
-            display: inline-block;
-            padding: 12px 24px;
-           background-color: #3498db;
-             color: #fff;
-            text-decoration: none;
-           border-radius: 6px;
-             transition: background-color 0.3s, transform 0.2s;
-            font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-       }
-        .btn:hover {
-          background-color: #2980b9;
-            transform: translateY(-2px);
-         }
-       footer {
-           background: linear-gradient(to right, #3498db, #8e44ad);
-             color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-           position: relative;
-            width: 100%;
-           margin-top: 2rem;
-           display: flex;
-           justify-content: space-between;
-          align-items: center;
-        }
-         footer .footer-content {
-           flex: 1;
-            padding-left: 20px;
-           padding-right: 20px;
-      }
-        footer .social-links a {
-            color: #fff;
-            margin: 0 10px;
-           font-size: 1.3rem;
-           transition: color 0.3s;
-       }
-        footer .social-links a:hover {
-          color: #ddd;
-       }
-         /* Burger menu */
-        .burger-menu {
-             display: none;
-            cursor: pointer;
-           margin-right: 20px;
-       }
-         .burger-menu div {
-            width: 25px;
-           height: 3px;
-           background-color: #fff;
-            margin: 5px 0;
-            transition: 0.4s;
-        }
-         /* Responsive Design */
-       @media (max-width: 768px) {
-          .nav-links {
-               display: none;
-               flex-direction: column;
-              background-color: #3498db;
-                position: absolute;
-               top: 60px;
-               left: 0;
-                width: 100%;
-                text-align: center;
-                z-index: 10;
-           }
-          .nav-links li {
-               margin: 0;
-           }
-          .nav-links li a {
-                display: block;
-                padding: 12px 20px;
-              border-radius: 0;
-            }
-           nav {
-              flex-wrap: wrap;
-               padding: 10px;
-           }
-          .burger-menu {
-               display: block;
-          }
-           .burger-menu.open div:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-          }
-            .burger-menu.open div:nth-child(2) {
-                opacity: 0;
-          }
-           .burger-menu.open div:nth-child(3) {
-                 transform: rotate(45deg) translate(-5px, -6px);
-          }
-           .nav-links.show {
-               display: flex;
-          }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-           .hero p {
-                 font-size: 1.1rem;
-            }
-             .container {
-                padding: 1.5rem;
-           }
-         footer {
-                flex-direction: column;
-                 text-align: center;
-           }
-           footer .footer-content {
-              padding: 10px;
-            }
-           footer .social-links {
-                padding-bottom: 10px;
-           }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/kontak.css">
 </head>
 <body>
     <header>
@@ -285,7 +36,7 @@
 
              <div class="contact-info">
                 <p><i class="fas fa-map-marker-alt"></i> <strong>Alamat:</strong> Jl. Merdeka No. 12, Kota Sabang, Aceh</p>
-               <p><i class="fas fa-envelope"></i> <strong>Email:</strong> forum.anak.sabang@email.com</p>
+               <p><i class="fas fa-envelope"></i> <strong>Email:</strong> fadkotasabang@gmail.com</p>
                 <p><i class="fas fa-phone"></i> <strong>Telepon:</strong> 0812-3456-7890</p>
             </div>
 
@@ -293,7 +44,7 @@
 
              <h2>Formulir Pendaftaran Anggota</h2>
              <p>Silakan isi formulir di bawah ini untuk mendaftar sebagai anggota Forum Anak Kota Sabang:</p>
-             <form class="contact-form">
+             <form class="contact-form" name="polo-contact">
                 <div class="form-group">
                      <label for="name">Nama Lengkap:</label>
                      <input type="text" id="name" name="name" required>
@@ -354,75 +105,33 @@
         });
 
         // Map
-        var map = L.map('map').setView([5.835154, 95.323629], 15); // Koordinat Sabang
+        var map = L.map('map').setView([5.87039063990635, 95.33690728218022], 15); // Koordinat Sabang
          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-       L.marker([5.835154, 95.323629]).addTo(map)
+       L.marker([5.87039063990635, 95.33690728218022]).addTo(map)
             .bindPopup('Forum Anak Kota Sabang')
            .openPopup();
 
-         // Form validasi
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-          contactForm.addEventListener('submit', function(e) {
-            let nameInput = document.getElementById('name');
-            let emailInput = document.getElementById('email');
-           let tanggalLahirInput = document.getElementById('tanggalLahir');
-             let nomorTelponInput = document.getElementById('nomorTelpon');
-              let jenisKelaminInput = document.getElementById('jenisKelamin');
-             let alamatInput = document.getElementById('alamat');
-            let motivasiInput = document.getElementById('motivasi');
-
-
-           if (nameInput.value.trim() === '') {
-                alert('Nama harus diisi!');
-                e.preventDefault();
-                return false;
-            }
-           if (emailInput.value.trim() === '') {
-                alert('Email harus diisi!');
-                 e.preventDefault();
-                return false;
-            } else if (!isValidEmail(emailInput.value)) {
-                alert('Format email tidak valid!');
-               e.preventDefault();
-                return false;
-           }
-            if (tanggalLahirInput.value.trim() === '') {
-                 alert('Tanggal lahir harus diisi!');
-                e.preventDefault();
-              return false;
-            }
-            if (nomorTelponInput.value.trim() === '') {
-               alert('Nomor telpon harus diisi!');
-                e.preventDefault();
-                 return false;
-           }
-          if (jenisKelaminInput.value.trim() === '') {
-                alert('Jenis kelamin harus diisi');
-              e.preventDefault();
-                 return false;
-           }
-           if (alamatInput.value.trim() === '') {
-               alert('Alamat harus diisi');
-                 e.preventDefault();
-              return false;
-           }
-           if (motivasiInput.value.trim() === '') {
-               alert('Motivasi harus diisi!');
-               e.preventDefault();
-                return false;
-            }
-            alert('Pendaftaran berhasil, Terima kasih sudah bergabung!');
-         });
-      }
-        // Email validation function
-        function isValidEmail(email) {
-           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-         }
+         
+         const scriptURL = 'https://script.google.com/macros/s/AKfycbwu51bRW97ZD8Zj-zd43drHo_mQdUZw9W86E9nn1hrtdwVg_Wkdy1RFc-y6wwuAf42kpA/exec'
+  const form = document.forms['polo-contact']
+  const btnKirim = document.querySelector('.btn-kirim')
+  const btnLoading = document.querySelector('.btn-loading')
+  const myAlert = document.querySelector('.my-alert')
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+   
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        form.reset();
+        console.log('Success!', response)
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
    </script>
+
 </body>
 </html>
